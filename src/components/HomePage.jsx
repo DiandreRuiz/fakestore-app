@@ -13,7 +13,7 @@ const HomePage = () => {
             </Row>
             <Row className="justify-content-center">
                 <Col xs="auto">
-                    <Button as={Link} to="/products" variant="primary" size="sm">
+                    <Button as={Link} to="/products" variant="warning" size="sm">
                         See Our Products
                     </Button>
                 </Col>
