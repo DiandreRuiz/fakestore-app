@@ -15,7 +15,7 @@ import Button from "react-bootstrap/Button";
 
 const Products = () => {
     // Declare State
-    const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [errorStatus, setErrorStatus] = useState(null);
 
