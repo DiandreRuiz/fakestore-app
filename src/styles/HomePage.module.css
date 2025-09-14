@@ -1,0 +1,10 @@
+.junkCard {
+    height: 100% !important;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.junkCard:hover {
+    transform: scale(1.05)
+}

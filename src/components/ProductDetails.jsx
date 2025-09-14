@@ -33,10 +33,20 @@ const ProductDetails = () => {
     }, [productId]); // We add productId to dependency list so that if it's updated in the browser,
 
     if (loading) {
-        return <p style={{ color: "green" }}>Loading...</p>;
+        return (
+            <Container className="text-center">
+                <p style={{ color: "green" }}>
+                    Loading...
+                </p>
+            </Container>
+        );
     }
     if (errorStatus) {
-        return <p style={{ color: "red" }}>{errorStatus}</p>;
+        return (
+            <Container className="text-center">
+                <p style={{ color: "red" }}>{errorStatus}</p>
+            </Container>
+        );
     }
     return (
         <Container className="">
