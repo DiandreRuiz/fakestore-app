@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Spinner from "react-bootstrap/Spinner";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import style from "../styles/HomePage.module.css"
+import style from "../styles/HomePage.module.css";
 
 const HomePage = () => {
     const [newestJunk, setNewestJunk] = useState([]);
@@ -29,10 +30,20 @@ const HomePage = () => {
     }, []);
 
     if (loading) {
-        return <p styles={{ color: "green" }}>Loading...</p>;
+        return (
+            <Container className="text-center">
+                <br />
+                <br />
+                <Spinner animation="border" variant="primary" className="mt-5"></Spinner>
+            </Container>
+        );
     }
     if (errorStatus) {
-        return <p style={{ color: "red" }}>{errorStatus}</p>;
+        return (
+            <Container className="text-center">
+                <p style={{ color: "red" }}>{errorStatus}</p>
+            </Container>
+        );
     }
 
     return (
@@ -53,7 +64,7 @@ const HomePage = () => {
 
             <Row className="justify-content-center">
                 <Col xs="auto">
-                    <Button as={Link} to="/products" variant="warning" size="sm" className="mt-4">
+                    <Button as={Link} to="/products" variant="warning" size="md" className="mt-4">
                         See All Products
                     </Button>
                 </Col>
