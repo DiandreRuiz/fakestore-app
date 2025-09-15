@@ -28,8 +28,12 @@ const NavBar = () => {
                             Home
                         </Nav.Link>
                         <Nav.Link as={NavLink} to="/products" className={({ isActive }) => (isActive ? "active" : "")}>
-                            Products
+                            Junk
                         </Nav.Link>
+                        <Nav.Link as={NavLink} to="/add-product" className={({ isActive }) => (isActive ? "active" : "")}>
+                            Add Junk
+                        </Nav.Link>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>
