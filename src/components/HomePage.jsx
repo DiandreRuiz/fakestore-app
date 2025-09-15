@@ -50,17 +50,19 @@ const HomePage = () => {
     return (
         <Container>
             <Row className="text-center mb-3">
-                <h1 className="mb-3">
-                    The World's <i className="text-danger">Hottest</i> Junk
-                </h1>
+                <h2 className="mb-3">The World's Best Junk</h2>
+                <h6 className="" style={{ color: "orange" }}>
+                    🎃 October Spooky Special 🦇
+                </h6>
+                <h6>FREE shipping on orders $50 or more!</h6>
             </Row>
             <div className="bg-light p-4 rounded">
                 <Row className="text-center mb-3">
-                    <h4>This Week's Top Junk</h4>
+                    <h4>🗓️ This Week's Top Junk</h4>
                 </Row>
                 <Row>
                     {newestJunk.map((junk) => (
-                        <Col>
+                        <Col key={junk.id}>
                             <JunkCard itemObj={junk}></JunkCard>
                         </Col>
                     ))}

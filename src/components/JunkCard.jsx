@@ -1,12 +1,29 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import style from "../styles/Card.module.css";
+import Button from "react-bootstrap/Button";
 
 const JunkCard = ({ itemObj }) => {
+    const formatUSD = (num) => {
+        return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+        }).format(num);
+    };
     return (
-        <Card key={itemObj.id} className={style.junkCard} as={Link} to={`products/${itemObj.id}`}>
-            <Card.Header className="flex-shrink-0">{itemObj.title}</Card.Header>
+        <Card key={itemObj.id} className={style.junkCard} as={Link} to={`/products/${itemObj.id}`}>
+            <Card.Header className="flex-shrink-0">
+                {itemObj.title}
+                <br />
+                <b>{formatUSD(itemObj.price)}</b>
+            </Card.Header>
+
             <Card.Img variant="bottom" src={itemObj.image} className="p-2 w-50 mx-auto my-auto m-3"></Card.Img>
+            <Card.Footer className="d-flex flex-column">
+                <Button className="d-inline-block mx-auto mb-1 mt-1" as={Link} to={`/products/${itemObj.id}`}>
+                    View Details
+                </Button>
+            </Card.Footer>
         </Card>
     );
 };
