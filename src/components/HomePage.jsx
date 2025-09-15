@@ -50,15 +50,22 @@ const HomePage = () => {
     return (
         <Container>
             <Row className="text-center mb-3">
-                <h1>This Week's Top Junk</h1>
+                <h1 className="mb-3">
+                    The World's <i className="text-danger">Hottest</i> Junk
+                </h1>
             </Row>
-            <Row>
-                {newestJunk.map((junk) => (
-                    <Col>
-                        <JunkCard itemObj={junk}></JunkCard>
-                    </Col>
-                ))}
-            </Row>
+            <div className="bg-light p-4 rounded">
+                <Row className="text-center mb-3">
+                    <h4>This Week's Top Junk</h4>
+                </Row>
+                <Row>
+                    {newestJunk.map((junk) => (
+                        <Col>
+                            <JunkCard itemObj={junk}></JunkCard>
+                        </Col>
+                    ))}
+                </Row>
+            </div>
 
             <Row className="justify-content-center">
                 <Col xs="auto">

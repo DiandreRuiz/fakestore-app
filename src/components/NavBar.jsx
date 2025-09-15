@@ -10,7 +10,7 @@ const NavBar = () => {
     return (
         <Navbar bg="light" variant="light" expand="md" className="p-1 mb-4">
             <Container className="d-flex justify-content-center">
-                <Navbar.Brand href="/" className="brand-logo">
+                <Navbar.Brand href="/" className="brand-logo brandLogo">
                     <div className={navStyles.logoContainer}>
                         {/* Static center logo */}
                         <img src={BrandEarth} alt="Shirt logo" className={navStyles.logoEarth} />
