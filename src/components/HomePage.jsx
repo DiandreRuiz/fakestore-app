@@ -48,7 +48,7 @@ const HomePage = () => {
     }
 
     return (
-        <Container>
+        <Container className="rounded-3">
             <Row className="text-center mb-3">
                 <h2 className="mb-3">The World's Best Junk</h2>
                 <h6 className="" style={{ color: "orange" }}>
@@ -67,15 +67,12 @@ const HomePage = () => {
                         </Col>
                     ))}
                 </Row>
-            </div>
-
-            <Row className="justify-content-center">
-                <Col xs="auto">
-                    <Button as={Link} to="/products" variant="warning" size="md" className="mt-4">
+                <Row>
+                    <Button as={Link} to="/products" variant="success" size="md" className="mt-4 w-auto mx-auto">
                         See All Products
                     </Button>
-                </Col>
-            </Row>
+                </Row>
+            </div>
         </Container>
     );
 };

@@ -2,16 +2,11 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import style from "../styles/Card.module.css";
 import Button from "react-bootstrap/Button";
+import { formatUSD } from "../utilities/pricing_utilities";
 
 const JunkCard = ({ itemObj }) => {
-    const formatUSD = (num) => {
-        return new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-        }).format(num);
-    };
     return (
-        <Card key={itemObj.id} className={style.junkCard} as={Link} to={`/products/${itemObj.id}`}>
+        <Card key={itemObj.id} className={`${style.junkCard} rounded-3`} as={Link} to={`/products/${itemObj.id}`}>
             <Card.Header className="flex-shrink-0">
                 {itemObj.title}
                 <br />

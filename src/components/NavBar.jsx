@@ -8,7 +8,7 @@ import navStyles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
     return (
-        <Navbar bg="light" variant="light" expand="md" className="p-1 mb-4">
+        <Navbar bg="light" variant="light" expand="md" className="p-1 mb-3">
             <Container className="d-flex justify-content-center">
                 <Navbar.Brand href="/" className="brand-logo brandLogo">
                     <div className={navStyles.logoContainer}>
