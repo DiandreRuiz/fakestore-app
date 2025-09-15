@@ -1,6 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 
-const AddProductModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
+const AddJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
     return (
         <>
             <Modal show={showModal} onHide={handleCloseModal}>
@@ -35,4 +35,4 @@ const AddProductModal = ({ itemObj, submitted, showModal, handleCloseModal }) =>
     );
 };
 
-export default AddProductModal;
+export default AddJunkModal;
