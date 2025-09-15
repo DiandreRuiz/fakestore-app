@@ -6,12 +6,8 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-// Pull products from products API
-// - Image
-// - Title
-// - Price
-// - Button to view details page (Navigates to product details page)
-// Display products on product cards that wrap when screen is smaller
+// Custom Components
+import JunkCard from "../components/JunkCard";
 
 const Products = () => {
     // Declare State
@@ -56,18 +52,13 @@ const Products = () => {
     }
     return (
         <Container>
-            {products.map((prod) => (
-                <Card key={prod.id}>
-                    <Card.Header>{prod.title}</Card.Header>
-                    <Card.Img src={prod.image}></Card.Img>
-                    <Card.Footer>
-                        ${Number(prod.price).toFixed(2)}
-                        <Button as={Link} to={`/products/${prod.id}`}>
-                            Product Details
-                        </Button>
-                    </Card.Footer>
-                </Card>
-            ))}
+            <Row>
+                {products.map((prod) => (
+                    <Col key={prod.id} md={4} className="mb-4">
+                        <JunkCard itemObj={prod}></JunkCard>
+                    </Col>
+                ))}
+            </Row>
         </Container>
     );
 };

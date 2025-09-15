@@ -5,8 +5,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Spinner from "react-bootstrap/Spinner";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import style from "../styles/HomePage.module.css";
+
+// Custom Components
+import JunkCard from "./JunkCard";
 
 const HomePage = () => {
     const [newestJunk, setNewestJunk] = useState([]);
@@ -54,10 +55,7 @@ const HomePage = () => {
             <Row>
                 {newestJunk.map((junk) => (
                     <Col>
-                        <Card key={junk.id} className={style.junkCard} as={Link} to={`products/${junk.id}`}>
-                            <Card.Header>{junk.title}</Card.Header>
-                            <Card.Img variant="bottom" src={junk.image} className="w-50 mx-auto m-3"></Card.Img>
-                        </Card>
+                        <JunkCard itemObj={junk}></JunkCard>
                     </Col>
                 ))}
             </Row>
