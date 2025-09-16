@@ -24,7 +24,7 @@ const EditJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
                                 {itemObj.description}
                             </p>
                             <p>
-                                <b>Category</b>
+                                <b>Category: </b>
                                 {itemObj.category}
                             </p>
                         </>

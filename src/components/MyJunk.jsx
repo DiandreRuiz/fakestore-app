@@ -30,11 +30,6 @@ const MyJunk = () => {
         getMyJunk();
     }, []);
 
-    const handleChangeTargetJunk = (e) => {
-        const selectedJunk = e.target.JunkCard;
-        // update formData here including target ID to be modified
-    };
-
     if (loading) {
         return (
             <Container className="text-center">
@@ -62,12 +57,13 @@ const MyJunk = () => {
                 <Row>
                     {myJunk.map((junk) => (
                         <Col key={junk.id}>
-                            <EditJunkTile itemObj={junk} targetJunkStateSetterForParent={setTargetJunk}></EditJunkTile>
+                            <EditJunkTile itemObj={junk} targetJunkStateSetterForParent={setTargetJunk} isSelected={targetJunk?.id === junk.id}></EditJunkTile>
                         </Col>
                     ))}
                 </Row>
+                
+                <Row>{targetJunk && <EditJunkForm targetJunk={targetJunk} />}</Row>
             </div>
-            {targetJunk && <EditJunkForm targetJunk={targetJunk} />}
         </Container>
     );
 };

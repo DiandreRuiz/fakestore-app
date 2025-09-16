@@ -12,7 +12,9 @@ import EditJunkModal from "./EditJunkModal";
 const EditJunkForm = ({ targetJunk }) => {
     const [formData, setFormData] = useState({ ...targetJunk });
     useEffect(() => {
-        setFormData({ ...targetJunk });
+        setFormData({
+            ...targetJunk,
+        });
     }, [targetJunk]);
 
     const [junkObj, setJunkObj] = useState(null);
@@ -31,7 +33,7 @@ const EditJunkForm = ({ targetJunk }) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: value,
+            [name]: name === "price" ? parseFloat(value) || 0 : value,
         });
     };
 
@@ -100,6 +102,9 @@ const EditJunkForm = ({ targetJunk }) => {
             )}
 
             <Form onSubmit={handleFormSubmit} noValidate validated={validated} className="">
+                <Row className="text-center mt-4 mb-3">
+                    <h4>Edit</h4>
+                </Row>
                 <Row className="justify-content-center">
                     <Col md="3">
                         <Form.Group controlId="formTitle" className="mb-3">
@@ -124,7 +129,7 @@ const EditJunkForm = ({ targetJunk }) => {
                     <Col md="2">
                         <Form.Group controlId="formPrice" className="mb-3">
                             <Form.Label>Price</Form.Label>
-                            <Form.Control type="number" min="0" placeholder="0.00" name="price" value={formData.price} onChange={handleFieldChange} required />
+                            <Form.Control type="number" min="0.00" placeholder="0.00" step="0.01" name="price" value={formData.price} onChange={handleFieldChange} required />
                             <Form.Control.Feedback type="invalid">Please enter a price</Form.Control.Feedback>
                         </Form.Group>
                     </Col>
