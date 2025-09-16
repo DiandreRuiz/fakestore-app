@@ -22,6 +22,9 @@ const JunkCard = ({ itemObj, targetJunkStateSetterForParent, isSelected }) => {
                 >
                     Edit Junk
                 </Button>
+                <Button variant="danger" className="d-inline-block mx-auto mb-1 mt-1" onClick={() => {}}>
+                    Delete
+                </Button>
             </Card.Footer>
         </Card>
     );
