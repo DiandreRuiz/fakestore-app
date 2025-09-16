@@ -6,7 +6,7 @@ import { formatUSD } from "../utilities/pricing_utilities";
 
 const JunkCard = ({ itemObj }) => {
     return (
-        <Card key={itemObj.id} className={`${style.junkCard} rounded-3`} as={Link} to={`/products/${itemObj.id}`}>
+        <Card key={itemObj.id} className={`${style.junkCard} rounded-3`}>
             <Card.Header className="flex-shrink-0">
                 {itemObj.title}
                 <br />

@@ -98,13 +98,7 @@ const MyJunk = () => {
                         </h5>
                     </Row>
                 )}
-                {myJunk ? null : (
-                    <Row>
-                        <h5>
-                            You have no Junk! Try <Link to="/add-junk">creating some</Link>
-                        </h5>
-                    </Row>
-                )}
+
                 <Row>
                     {myJunk.map((junk) => (
                         <Col key={junk.id}>
@@ -113,7 +107,7 @@ const MyJunk = () => {
                     ))}
                 </Row>
 
-                <Row>{targetJunk && <EditJunkForm targetJunk={targetJunk} />}</Row>
+                <Row>{targetJunk && myJunk.includes(targetJunk) && <EditJunkForm targetJunk={targetJunk} />}</Row>
             </div>
         </Container>
     );
