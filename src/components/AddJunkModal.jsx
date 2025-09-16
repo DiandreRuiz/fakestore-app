@@ -1,4 +1,5 @@
 import Modal from "react-bootstrap/Modal";
+import { formatUSD } from "../utilities/pricing_utilities";
 
 const AddJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
     return (
@@ -16,7 +17,7 @@ const AddJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
                             </p>
                             <p>
                                 <b>Price: </b>
-                                {itemObj.price}
+                                {formatUSD(itemObj.price)}
                             </p>
                             <p>
                                 <b>Description: </b>
