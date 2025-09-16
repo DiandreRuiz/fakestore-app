@@ -6,14 +6,6 @@ import Spinner from "react-bootstrap/Spinner";
 import EditJunkTile from "./EditJunkTile";
 
 const MyJunk = () => {
-    const [formData, setFormData] = useState({
-        title: "",
-        price: 0,
-        description: "",
-        category: "",
-        image: "",
-        targetJunkId: "",
-    });
     const [myJunk, setMyJunk] = useState([]);
     const [targetJunk, setTargetJunk] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -73,7 +65,6 @@ const MyJunk = () => {
                         </Col>
                     ))}
                 </Row>
-                
             </div>
         </Container>
     );
