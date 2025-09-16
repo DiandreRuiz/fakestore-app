@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -49,6 +50,9 @@ const MyJunk = () => {
                     throw new Error(`Server error when trying to delete product id: ${junkId} - ${response.status}`);
                 }
 
+                // Remove junk from myJunk so we re-render the tiles
+                setMyJunk((prevJunk) => prevJunk.filter((junk) => junk.id !== junkId));
+
                 const responseData = await response.json();
                 setDeleteSuccess(true);
                 setShowDeleteModal(true);
@@ -87,6 +91,20 @@ const MyJunk = () => {
                 <Row className="text-center mb-3">
                     <h4>My Junk</h4>
                 </Row>
+                {myJunk.length === 0 && (
+                    <Row className="text-center">
+                        <h5>
+                            You have no Junk! Try <Link to="/add-junk">creating some</Link>.
+                        </h5>
+                    </Row>
+                )}
+                {myJunk ? null : (
+                    <Row>
+                        <h5>
+                            You have no Junk! Try <Link to="/add-junk">creating some</Link>
+                        </h5>
+                    </Row>
+                )}
                 <Row>
                     {myJunk.map((junk) => (
                         <Col key={junk.id}>

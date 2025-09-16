@@ -3,7 +3,7 @@ import style from "../styles/Card.module.css";
 import Button from "react-bootstrap/Button";
 import { formatUSD } from "../utilities/pricing_utilities";
 
-const JunkCard = ({ itemObj, targetJunkStateSetterForParent, isSelected, handleDeleteJunk }) => {
+const JunkCard = ({ itemObj, targetJunkStateSetterForParent, isSelected, handleJunkDelete }) => {
     return (
         <Card key={itemObj.id} className={`${style.junkCard} rounded-3 ${isSelected ? "border border-primary border-3" : ""}`}>
             <Card.Header className="flex-shrink-0">
@@ -26,7 +26,7 @@ const JunkCard = ({ itemObj, targetJunkStateSetterForParent, isSelected, handleD
                     variant="danger"
                     className="d-inline-block mx-auto mb-1 mt-1"
                     onClick={() => {
-                        handleDeleteJunk(itemObj.id);
+                        handleJunkDelete(itemObj.id);
                     }}
                 >
                     Delete

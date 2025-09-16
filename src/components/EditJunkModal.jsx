@@ -16,16 +16,16 @@ const EditJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
                                 {itemObj.title}
                             </p>
                             <p>
+                                <b>Category: </b>
+                                {itemObj.category}
+                            </p>
+                            <p>
                                 <b>Price: </b>
                                 {formatUSD(itemObj.price)}
                             </p>
                             <p>
                                 <b>Description: </b>
                                 {itemObj.description}
-                            </p>
-                            <p>
-                                <b>Category: </b>
-                                {itemObj.category}
                             </p>
                         </>
                     )}
