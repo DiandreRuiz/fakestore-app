@@ -11,8 +11,8 @@ const MyJunk = () => {
     const [targetJunk, setTargetJunk] = useState(null);
     const [loading, setLoading] = useState(true);
     const [errorStatus, setErrorStatus] = useState(null);
-    const [deleteSuccess, setDeleteSuccess] = useState(false);
     const [deleteResponse, setDeleteResponse] = useState({});
+    const [deleteSuccess, setDeleteSuccess] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     useEffect(() => {
