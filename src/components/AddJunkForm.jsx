@@ -4,9 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
-import FormGroup from "react-bootstrap/FormGroup";
-import InputGroup from "react-bootstrap/InputGroup";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Button from "react-bootstrap/Button";
 
 // Custom Components
 import AddJunkModal from "./AddJunkModal";
@@ -149,8 +147,10 @@ const AddJunkForm = () => {
                         </Form.Group>
                     </Col>
                 </Row>
-                <Row>
-                    <Col md="4"></Col>
+                <Row className="justify-content-center">
+                    <Col md="auto">
+                        <Button type="submit" onClick={handleFormSubmit}>Submit</Button>
+                    </Col>
                 </Row>
             </Form>
         </Container>
