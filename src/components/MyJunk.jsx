@@ -90,7 +90,7 @@ const MyJunk = () => {
                 <Row>
                     {myJunk.map((junk) => (
                         <Col key={junk.id}>
-                            <EditJunkTile itemObj={junk} targetJunkStateSetterForParent={setTargetJunk} isSelected={targetJunk?.id === junk.id}></EditJunkTile>
+                            <EditJunkTile itemObj={junk} targetJunkStateSetterForParent={setTargetJunk} isSelected={targetJunk?.id === junk.id} handleJunkDelete={handleJunkDelete}></EditJunkTile>
                         </Col>
                     ))}
                 </Row>
