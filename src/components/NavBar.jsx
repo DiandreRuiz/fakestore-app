@@ -9,9 +9,9 @@ import navStyles from "../styles/NavBar.module.css";
 const NavBar = () => {
     return (
         <Navbar bg="light" variant="light" expand="md" className="p-1 mb-3">
-            <Container className="d-flex justify-content-center">
+            <Container className="d-flex justify-content-center pe-5">
                 <Navbar.Brand href="/" className="brand-logo brandLogo">
-                    <div className={navStyles.logoContainer}>
+                    <div className={`${navStyles.logoContainer} me-0`}>
                         {/* Static center logo */}
                         <img src={BrandEarth} alt="Shirt logo" className={navStyles.logoEarth} />
 
@@ -33,7 +33,6 @@ const NavBar = () => {
                         <Nav.Link as={NavLink} to="/add-junk" className={({ isActive }) => (isActive ? "active" : "")}>
                             Add-Junk
                         </Nav.Link>
-                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>

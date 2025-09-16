@@ -100,19 +100,20 @@ const AddJunkForm = () => {
                 </Alert>
             )}
 
-            <Form onSubmit={handleFormSubmit} noValidate validated={validated}>
-                <Row>
-                    <Col md="4">
+            <Form onSubmit={handleFormSubmit} noValidate validated={validated} className="">
+                <Row className="justify-content-center">
+                    <Col md="3">
                         <Form.Group controlId="formTitle" className="mb-3">
                             <Form.Label>Title</Form.Label>
                             <Form.Control type="text" placeholder="My Junk" name="title" value={formData.title} onChange={handleFieldChange} required />
-                            <Form.Control.Feedback type="invalid">Please enter a Title</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Please enter a title</Form.Control.Feedback>
                         </Form.Group>
                     </Col>
-                    <Col md="4">
+                    <Col md="3">
                         <Form.Group controlId="formTitle" className="mb-3">
                             <Form.Label>Category</Form.Label>
                             <Form.Select name="category" value={formData.category} onChange={handleFieldChange} required>
+                                <option value=""></option>
                                 <option value="electronics">electronics</option>
                                 <option value="jewelery">jewelery</option>
                                 <option value="mens-clothing">men's clothing</option>
@@ -121,8 +122,15 @@ const AddJunkForm = () => {
                             <Form.Control.Feedback type="invalid">Please select a category</Form.Control.Feedback>
                         </Form.Group>
                     </Col>
+                    <Col md="2">
+                        <Form.Group controlId="formPrice" className="mb-3">
+                            <Form.Label>Price</Form.Label>
+                            <Form.Control type="number" min="0" placeholder="0.00" name="price" value={formData.price} onChange={handleFieldChange} required />
+                            <Form.Control.Feedback type="invalid">Please enter a price</Form.Control.Feedback>
+                        </Form.Group>
+                    </Col>
                 </Row>
-                <Row>
+                <Row className="justify-content-center">
                     <Col md="8">
                         <Form.Group controlId="formDescription" className="mb-3">
                             <Form.Label>Description</Form.Label>
@@ -137,18 +145,12 @@ const AddJunkForm = () => {
                                 onChange={handleFieldChange}
                                 required
                             />
-                            <Form.Control.Feedback type="invalid">Please Enter a Price</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Please add a description</Form.Control.Feedback>
                         </Form.Group>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md="2">
-                        <Form.Group controlId="formPrice" className="mb-3">
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control type="text" placeholder="$0.00" name="price" value={formData.price} onChange={handleFieldChange} required />
-                            <Form.Control.Feedback type="invalid">Please Enter a Price</Form.Control.Feedback>
-                        </Form.Group>
-                    </Col>
+                    <Col md="4"></Col>
                 </Row>
             </Form>
         </Container>
