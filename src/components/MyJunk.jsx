@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import EditJunkTile from "./EditJunkTile";
+import EditJunkForm from "./EditJunkForm";
 
 const MyJunk = () => {
     const [myJunk, setMyJunk] = useState([]);
@@ -61,11 +62,12 @@ const MyJunk = () => {
                 <Row>
                     {myJunk.map((junk) => (
                         <Col key={junk.id}>
-                            <EditJunkTile itemObj={junk}></EditJunkTile>
+                            <EditJunkTile itemObj={junk} targetJunkStateSetterForPar={setTargetJunk}></EditJunkTile>
                         </Col>
                     ))}
                 </Row>
             </div>
+            {targetJunk && <EditJunkForm targetJunk={targetJunk} />}
         </Container>
     );
 };

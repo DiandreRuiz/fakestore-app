@@ -162,4 +162,4 @@ const EditJunkForm = ({ targetJunk }) => {
     );
 };
 
-export default AddJunkForm;
+export default EditJunkForm;
