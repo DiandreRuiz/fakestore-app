@@ -11,6 +11,9 @@ const MyJunk = () => {
     const [targetJunk, setTargetJunk] = useState(null);
     const [loading, setLoading] = useState(true);
     const [errorStatus, setErrorStatus] = useState(null);
+    const [deleteSuccess, setDeleteSuccess] = useState(false);
+    const [deleteResponse, setDeleteResponse] = useState({});
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     useEffect(() => {
         // On mount, we grab the first 3 'products' from the API and list them as this user's junk
@@ -29,6 +32,30 @@ const MyJunk = () => {
 
         getMyJunk();
     }, []);
+
+    const handleJunkDelete = (junkId) => {
+        const deleteJunk = async () => {
+            try {
+                const response = await fetch(`https://fakestoreapi.com/products/${junkId}`, {
+                    method: "DELETE",
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server error when trying to delete product id: ${junkId} - ${response.status}`);
+                }
+
+                const responseData = await response.json();
+                setDeleteSuccess(true);
+                setShowDeleteModal(true);
+                setDeleteResponse(responseData);
+            } catch (err) {
+                setErrorStatus(`Issue with deleting product id: ${junkId} - ${err.message}`);
+                setDeleteSuccess(false);
+                setShowDeleteModal(true);
+            }
+        };
+        deleteJunk();
+    };
 
     if (loading) {
         return (
@@ -61,7 +88,7 @@ const MyJunk = () => {
                         </Col>
                     ))}
                 </Row>
-                
+
                 <Row>{targetJunk && <EditJunkForm targetJunk={targetJunk} />}</Row>
             </div>
         </Container>
