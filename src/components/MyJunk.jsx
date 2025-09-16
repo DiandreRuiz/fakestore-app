@@ -1,34 +1,46 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Spinner from "react-bootstrap/Spinner";
 import Col from "react-bootstrap/Col";
+import Spinner from "react-bootstrap/Spinner";
+import EditJunkTile from "./EditJunkTile";
 
-// Custom Components
-import JunkCard from "./JunkCard";
-
-const HomePage = () => {
-    const [newestJunk, setNewestJunk] = useState([]);
+const MyJunk = () => {
+    const [formData, setFormData] = useState({
+        title: "",
+        price: 0,
+        description: "",
+        category: "",
+        image: "",
+        targetJunkId: "",
+    });
+    const [myJunk, setMyJunk] = useState([]);
+    const [targetJunk, setTargetJunk] = useState(null);
     const [loading, setLoading] = useState(true);
     const [errorStatus, setErrorStatus] = useState(null);
 
     useEffect(() => {
-        const getTopJunk = async () => {
+        // On mount, we grab the first 3 'products' from the API and list them as this user's junk
+        const getMyJunk = async () => {
             try {
                 const response = await fetch("https://fakestoreapi.com/products");
                 const responseData = await response.json();
                 const firstThreeItems = responseData.slice(0, 3);
-                setNewestJunk(firstThreeItems); // We take only the first 5 items from the API
+                setMyJunk(firstThreeItems);
                 setLoading(false);
-            } catch (err) {
-                setErrorStatus(`Error trying to get top junk: ${err.message}`);
+            } catch (error) {
+                setErrorStatus(`Issue with retrieving 'My Junk' junk: ${error.message}`);
                 setLoading(false);
             }
         };
-        getTopJunk();
+
+        getMyJunk();
     }, []);
+
+    const handleChangeTargetJunk = (e) => {
+        const selectedJunk = e.target.JunkCard;
+        // update formData here including target ID to be modified
+    };
 
     if (loading) {
         return (
@@ -39,6 +51,7 @@ const HomePage = () => {
             </Container>
         );
     }
+
     if (errorStatus) {
         return (
             <Container className="text-center">
@@ -48,33 +61,22 @@ const HomePage = () => {
     }
 
     return (
-        <Container className="rounded-3">
-            <Row className="text-center mb-3">
-                <h2 className="mb-3">The World's Best Junk</h2>
-                <h6 className="" style={{ color: "orange" }}>
-                    🎃 October Spooky Special 🦇
-                </h6>
-                <h6>FREE shipping on orders $50 or more!</h6>
-            </Row>
+        <Container>
             <div className="bg-light p-4 rounded">
                 <Row className="text-center mb-3">
-                    <h4>🗓️ This Week's Top Junk</h4>
+                    <h4>My Junk</h4>
                 </Row>
                 <Row>
-                    {newestJunk.map((junk) => (
+                    {myJunk.map((junk) => (
                         <Col key={junk.id}>
-                            <JunkCard itemObj={junk}></JunkCard>
+                            <EditJunkTile itemObj={junk}></EditJunkTile>
                         </Col>
                     ))}
                 </Row>
-                <Row>
-                    <Button as={Link} to="/products" variant="success" size="md" className="mt-4 w-auto mx-auto">
-                        See All Products
-                    </Button>
-                </Row>
+                
             </div>
         </Container>
     );
 };
 
-export default HomePage;
+export default MyJunk;

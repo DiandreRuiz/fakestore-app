@@ -31,7 +31,10 @@ const NavBar = () => {
                             Junk
                         </Nav.Link>
                         <Nav.Link as={NavLink} to="/add-junk" className={({ isActive }) => (isActive ? "active" : "")}>
-                            Add-Junk
+                            Add Junk
+                        </Nav.Link>
+                        <Nav.Link as={NavLink} to="/my-junk" className={({ isActive }) => (isActive ? "active" : "")}>
+                            My Junk
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

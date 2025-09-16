@@ -1,0 +1,26 @@
+import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import style from "../styles/Card.module.css";
+import Button from "react-bootstrap/Button";
+import { formatUSD } from "../utilities/pricing_utilities";
+
+const JunkCard = ({ itemObj }) => {
+    return (
+        <Card key={itemObj.id} className={`${style.junkCard} rounded-3`} as={Link} to={`/products/${itemObj.id}`}>
+            <Card.Header className="flex-shrink-0">
+                {itemObj.title}
+                <br />
+                <b>{formatUSD(itemObj.price)}</b>
+            </Card.Header>
+
+            <Card.Img variant="bottom" src={itemObj.image} className="p-2 w-25 mx-auto my-auto m-3"></Card.Img>
+            <Card.Footer className="d-flex flex-column">
+                <Button className="d-inline-block mx-auto mb-1 mt-1" as={Link} to={`/products/${itemObj.id}`}>
+                    Edit Junk
+                </Button>
+            </Card.Footer>
+        </Card>
+    );
+};
+
+export default JunkCard;
