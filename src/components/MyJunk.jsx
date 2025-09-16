@@ -8,6 +8,10 @@ import EditJunkTile from "./EditJunkTile";
 import EditJunkForm from "./EditJunkForm";
 import DeleteJunkModal from "./DeleteJunkModal";
 
+// NOTE: I didn't actually update the cards on PUT because it just didn't feel right
+// to not derive that from the backend... I did however, simulate the 'DELETE' by
+// just removing the card lol
+
 const MyJunk = () => {
     const [myJunk, setMyJunk] = useState([]);
     const [targetJunk, setTargetJunk] = useState(null);
