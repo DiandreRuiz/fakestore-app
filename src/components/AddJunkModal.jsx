@@ -10,7 +10,6 @@ const AddJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
                 <Modal.Body>
                     {submitted && (
                         <>
-                            <p>Nice Job! Your Submitted Junk</p>
                             <p>
                                 <b>Junk Name: </b>
                                 {itemObj.title}

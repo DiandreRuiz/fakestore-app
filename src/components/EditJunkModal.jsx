@@ -11,7 +11,6 @@ const EditJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
                 <Modal.Body>
                     {submitted && (
                         <>
-                            <p>Successfully updated your Junk!</p>
                             <p>
                                 <b>Junk Name: </b>
                                 {itemObj.title}
