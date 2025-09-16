@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
+import Spinner from "react-bootstrap/Spinner";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -36,7 +37,9 @@ const Products = () => {
     if (loading) {
         return (
             <Container className="text-center">
-                <p style={{ color: "green" }}>Loading</p>
+                <br />
+                <br />
+                <Spinner animation="border" variant="primary" className="mt-5"></Spinner>
             </Container>
         );
     }
