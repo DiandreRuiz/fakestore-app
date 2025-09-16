@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,14 +10,10 @@ import Button from "react-bootstrap/Button";
 import EditJunkModal from "./EditJunkModal";
 
 const EditJunkForm = ({ targetJunk }) => {
-    const [formData, setFormData] = useState({
-        title: targetJunk.title,
-        price: targetJunk.price,
-        description: targetJunk.description,
-        category: targetJunk.category,
-        image: targetJunk.image,
-        id: targetJunk.id,
-    });
+    const [formData, setFormData] = useState({ ...targetJunk });
+    useEffect(() => {
+        setFormData({ ...targetJunk });
+    }, [targetJunk]);
 
     const [junkObj, setJunkObj] = useState(null);
     const [submitted, setSubmitted] = useState(false);
@@ -119,8 +115,8 @@ const EditJunkForm = ({ targetJunk }) => {
                                 <option value=""></option>
                                 <option value="electronics">electronics</option>
                                 <option value="jewelery">jewelery</option>
-                                <option value="mens-clothing">men's clothing</option>
-                                <option value="womens-clothing">women's clothing</option>
+                                <option value="men's clothing">men's clothing</option>
+                                <option value="women's clothing">women's clothing</option>
                             </Form.Select>
                             <Form.Control.Feedback type="invalid">Please select a category</Form.Control.Feedback>
                         </Form.Group>
