@@ -18,7 +18,7 @@ const DetailsBlock = ({ itemObj }) => {
                 <p className="mb-1">
                     <b>{formatUSD(itemObj.price)}</b>
                 </p>
-                <Button>Add to Cart</Button>
+                <Button className="mt-3">Add to Cart</Button>
             </Col>
         </Row>
     );
