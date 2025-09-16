@@ -5,7 +5,7 @@ const AddJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
         <>
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton="true">
-                    <Modal.Title>Form Submitted!</Modal.Title>
+                    <Modal.Title>Junk Added!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {submitted && (

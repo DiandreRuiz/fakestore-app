@@ -1,11 +1,12 @@
 import Modal from "react-bootstrap/Modal";
+import { formatUSD } from "../utilities/pricing_utilities";
 
 const EditJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
     return (
         <>
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton="true">
-                    <Modal.Title>Form Submitted!</Modal.Title>
+                    <Modal.Title>Junk Edit Successful!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {submitted && (
@@ -17,7 +18,7 @@ const EditJunkModal = ({ itemObj, submitted, showModal, handleCloseModal }) => {
                             </p>
                             <p>
                                 <b>Price: </b>
-                                {itemObj.price}
+                                {formatUSD(itemObj.price)}
                             </p>
                             <p>
                                 <b>Description: </b>
