@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 // Custom Components
-import AddJunkModal from "./AddJunkModal";
+import EditJunkModal from "./EditJunkModal";
 
 const EditJunkForm = ({ targetJunk }) => {
     const [formData, setFormData] = useState({
@@ -87,7 +87,7 @@ const EditJunkForm = ({ targetJunk }) => {
                 setShowModal(true);
                 setErrorState(null);
             } catch (err) {
-                setErrorState(`Issue submitting Junk: ${err.message}`);
+                setErrorState(`Issue editing Junk: ${err.message}`);
                 setSubmitted(false);
             }
         }
@@ -95,7 +95,7 @@ const EditJunkForm = ({ targetJunk }) => {
 
     return (
         <Container>
-            <AddJunkModal itemObj={itemObj} submitted={submitted} showModal={showModal} handleCloseModal={handleCloseModal} />
+            <EditJunkModal itemObj={junkObj} submitted={submitted} showModal={showModal} handleCloseModal={handleCloseModal} />
 
             {errorState && (
                 <Alert variant="danger" dismissible="true" onClose={handleAlertClose}>
