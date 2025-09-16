@@ -56,7 +56,10 @@ const AddJunkForm = () => {
         const form = e.target;
         // Manually run built-in DOM validation & stop event propagation if
         // form is not deemed validly filled out
-        if (form.checkValidity() === false) {
+        const validFormInputs = form.checkValidity();
+        setValidated(true);
+
+        if (validFormInputs === false) {
             e.stopPropagation();
             return;
         } else {
@@ -72,7 +75,6 @@ const AddJunkForm = () => {
                 if (!response.ok) {
                     throw new Error(`Server responded with ${response.status}`);
                 }
-
                 // Get information about what was added to backend directly from
                 // API POST response
                 const responseData = await response.json();
@@ -85,7 +87,7 @@ const AddJunkForm = () => {
                 setSubmitted(false);
             }
         }
-        setValidated(true);
+        
     };
 
     return (
@@ -93,7 +95,7 @@ const AddJunkForm = () => {
             <AddJunkModal itemObj={itemObj} submitted={submitted} showModal={showModal} handleCloseModal={handleCloseModal} />
 
             {errorState && (
-                <Alert variant="danger" dismissable="true" onClose={handleAlertClose}>
+                <Alert variant="danger" dismissible="true" onClose={handleAlertClose}>
                     {errorState}
                 </Alert>
             )}
@@ -149,7 +151,7 @@ const AddJunkForm = () => {
                 </Row>
                 <Row className="justify-content-center">
                     <Col md="auto">
-                        <Button type="submit" onClick={handleFormSubmit}>Submit</Button>
+                        <Button type="submit">Submit</Button>
                     </Col>
                 </Row>
             </Form>
