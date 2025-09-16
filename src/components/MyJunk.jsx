@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import EditJunkTile from "./EditJunkTile";
 import EditJunkForm from "./EditJunkForm";
+import DeleteJunkModal from "./DeleteJunkModal";
 
 const MyJunk = () => {
     const [myJunk, setMyJunk] = useState([]);
@@ -32,6 +33,10 @@ const MyJunk = () => {
 
         getMyJunk();
     }, []);
+
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
+    };
 
     const handleJunkDelete = (junkId) => {
         const deleteJunk = async () => {
@@ -77,6 +82,7 @@ const MyJunk = () => {
 
     return (
         <Container>
+            <DeleteJunkModal itemObj={deleteResponse} deleteSuccess={deleteSuccess} showModal={showDeleteModal} handleCloseModal={handleCloseDeleteModal}></DeleteJunkModal>
             <div className="bg-light p-4 rounded">
                 <Row className="text-center mb-3">
                     <h4>My Junk</h4>
